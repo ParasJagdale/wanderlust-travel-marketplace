@@ -90,5 +90,5 @@ This project is licensed under the MIT License.
 
 ---
 
-> Made with ❤️ by the Wanderlust Team. Adventure awaits at every destination!
+> Made with ❤️ by the Paras jagdale. Adventure awaits at every destination!
 
