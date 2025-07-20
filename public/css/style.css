@@ -13,7 +13,19 @@ body {
 
 .navbar {
     height: 5rem;
-    background-color: white;
+    background-color: #fff !important;
+    color: #222 !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1030;
+    background-color: #fff !important;
+    color: #222 !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    opacity: 1 !important;
+    backdrop-filter: none !important;
 }
 
 .fa-compass {

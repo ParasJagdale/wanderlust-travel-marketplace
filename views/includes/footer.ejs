@@ -1,14 +1,266 @@
-<footer>
-    <div class="f-info">
-        <div class="f-info-socials">
-            <i class="fa-brands fa-square-facebook"></i>
-            <i class="fa-brands fa-square-instagram"></i>
-            <i class="fa-brands fa-linkedin"></i>
-        </div>
-        <div class="f-info-brand">&copy; Wanderlust Private Limited</div>
-        <div class="f-info-links">
-            <a href="/privacy">Privacy</a>
-            <a href="/terms">Terms</a>
-        </div>
-    </div>
-</footer>
+<style>
+    footer {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.1);
+      padding: 2rem 0 1rem;
+      margin-top: auto;
+      position: relative;
+      overflow: hidden;
+    }
+  
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+      opacity: 0.5;
+    }
+  
+    .f-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 2;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+  
+    .f-info-socials {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+  
+    .f-info-socials i {
+      font-size: 1.8rem;
+      color: #2c3e50;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      padding: 0.5rem;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+  
+    .f-info-socials i:hover {
+      color: #ffffff;
+      transform: translateY(-3px) scale(1.1);
+      background: rgba(0, 0, 0, 0.8);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+  
+    .f-info-socials .fa-facebook:hover {
+      color: #4267B2;
+      background: rgba(255, 255, 255, 0.9);
+    }
+  
+    .f-info-socials .fa-square-facebook:hover {
+      color: #4267B2;
+      background: rgba(255, 255, 255, 0.9);
+    }
+  
+    .f-info-socials .fa-instagram:hover,
+    .f-info-socials .fa-square-instagram:hover {
+      color: #E4405F;
+      background: rgba(255, 255, 255, 0.9);
+    }
+  
+    .f-info-socials .fa-linkedin:hover {
+      color: #0077B5;
+      background: rgba(255, 255, 255, 0.9);
+    }
+  
+    .f-info-brand {
+      color: #2c3e50;
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-align: center;
+      letter-spacing: 0.5px;
+      position: relative;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 0.75rem 1.5rem;
+      border-radius: 25px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+    }
+  
+    .f-info-brand::before {
+      content: '✨';
+      margin-right: 0.5rem;
+      animation: sparkle 2s infinite;
+    }
+  
+    .f-info-brand::after {
+      content: '✨';
+      margin-left: 0.5rem;
+      animation: sparkle 2s infinite reverse;
+    }
+  
+    @keyframes sparkle {
+      0%, 100% { opacity: 0.5; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+  
+    .f-info-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+  
+    .f-info-links a {
+      color: #2c3e50;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.9);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+  
+    .f-info-links a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s;
+    }
+  
+    .f-info-links a:hover {
+      color: #ffffff;
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      transform: translateY(-2px);
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+  
+    .f-info-links a:hover::before {
+      left: 100%;
+    }
+  
+    /* Additional decorative elements */
+    .footer-divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      margin: 1.5rem 0 1rem;
+    }
+  
+    .footer-tagline {
+      text-align: center;
+      color: #2c3e50;
+      font-size: 1rem;
+      font-style: italic;
+      font-weight: 500;
+      margin-top: 1rem;
+      position: relative;
+      z-index: 2;
+      background: rgba(255, 255, 255, 0.85);
+      padding: 0.5rem 1rem;
+      border-radius: 15px;
+      display: inline-block;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  
+    .footer-compass {
+      position: absolute;
+      top: 1rem;
+      right: 2rem;
+      font-size: 3rem;
+      color: rgba(255, 215, 0, 0.1);
+      animation: rotate 20s linear infinite;
+    }
+  
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+  
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .f-info {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        padding: 0 1rem;
+      }
+  
+      .f-info-links {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+  
+      .f-info-socials {
+        order: 2;
+      }
+  
+      .f-info-brand {
+        order: 1;
+        font-size: 1rem;
+      }
+  
+      .f-info-links {
+        order: 3;
+      }
+  
+      .footer-compass {
+        display: none;
+      }
+    }
+  
+    @media (max-width: 480px) {
+      .f-info-links {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+  
+      .f-info-socials i {
+        font-size: 1.5rem;
+        padding: 0.4rem;
+      }
+    }
+  </style>
+  
+  <footer>
+      <div class="footer-compass">
+          <i class="fa-regular fa-compass"></i>
+      </div>
+      <div class="f-info">
+          <div class="f-info-socials">
+              <i class="fa-brands fa-square-facebook"></i>
+              <i class="fa-brands fa-square-instagram"></i>
+              <i class="fa-brands fa-linkedin"></i>
+          </div>
+          <div class="f-info-brand">© Wanderlust Private Limited</div>
+          <div class="f-info-links">
+              <a href="/privacy">Privacy</a>
+              <a href="/terms">Terms</a>
+          </div>
+      </div>
+      <div class="footer-divider" style="margin-top: 2.5rem; margin-bottom: 2rem;"></div>
+      <div class="footer-tagline" style="margin-top: 2rem;">
+          "Adventure awaits at every destination" 🌍
+      </div>
+  </footer>

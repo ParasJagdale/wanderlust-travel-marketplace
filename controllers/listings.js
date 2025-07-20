@@ -14,25 +14,23 @@ module.exports.renderNewForm = (req, res) => {
 module.exports.showListing = async (req, res) => {
     let {id} = req.params;
     const listing = await Listing.findById(id)
-        .populate({
-            path: "reviews",
-            populate: {
-                path: "author",
-            },
-        })
-        .populate("owner");
+    .populate({
+      path: "reviews",
+      populate: { path: "author" }
+    })
+    .populate("owner");
     if(!listing) {
         req.flash("error", "Listing you requested for does not exist!");
         res.redirect("/listings");
     }
     res.render("listings/show.ejs", {listing});
-    console.log(listing);
+    //console.log(listing);
 }
 
 module.exports.createListing = async (req, res, next) => {
     let url = req.file.path;
     let filename = req.file.filename;
-    const newListing = new Listing(req.body.listing);
+    const newListing = new Listing(req.body.listing); // <-- define newListing
     newListing.owner = req.user._id;
     newListing.image = { url, filename };
     await newListing.save();

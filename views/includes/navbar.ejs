@@ -1,53 +1,236 @@
 <style>
+  /* Navbar styling */
+  .navbar {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    padding: 0.75rem 0;
+    transition: all 0.3s ease;
+  }
+
+  .navbar-brand {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffffff !important;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+  }
+
+  .navbar-brand:hover {
+    color: #f8f9fa !important;
+    transform: translateY(-1px);
+  }
+
+  .navbar-brand i {
+    margin-right: 0.75rem;
+    font-size: 2rem;
+    color: #ffd700;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+
+  .brand-text {
+    background: linear-gradient(45deg, #ffffff, #ffd700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-family: 'Arial', sans-serif;
+  }
+
+  .navbar-toggler {
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .navbar-toggler:hover {
+    border-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+
+  .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-weight: 500;
+    padding: 0.5rem 1rem !important;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    margin: 0 0.25rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .navbar-nav .nav-link:hover {
+    color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .navbar-nav .nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+  }
+
+  .navbar-nav .nav-link:hover::before {
+    left: 100%;
+  }
+
   .search-btn {
-    background-color: #fe424d;
+    background: linear-gradient(45deg, #fe424d, #ff6b6b);
     color: #fff;
     border-radius: 25px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-inline: 1rem;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(254, 66, 77, 0.3);
   }
+
   .search-btn:hover {
-    background-color: #fe424d;
+    background: linear-gradient(45deg, #ff6b6b, #fe424d);
     color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(254, 66, 77, 0.4);
   }
 
   .search-btn i {
     display: inline;
     margin-right: 0.5rem;
+    font-size: 0.9rem;
   }
 
   .search-inp {
     border-radius: 25px;
-    padding: 0.5rem 3rem;
-    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.95rem;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+  }
+
+  .search-inp:focus {
+    border-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+  }
+
+  .search-inp::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  /* Special styling for authentication links */
+  .auth-link {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    margin: 0 0.25rem;
+  }
+
+  .auth-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+
+  .logout-link {
+    background: linear-gradient(45deg, #ff4757, #ff3838);
+    border-radius: 20px;
+    margin: 0 0.25rem;
+  }
+
+  .logout-link:hover {
+    background: linear-gradient(45deg, #ff3838, #ff4757);
+    transform: translateY(-2px);
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .navbar-brand {
+      font-size: 1.5rem;
+    }
+    
+    .brand-text {
+      display: none;
+    }
+    
+    .navbar-nav {
+      background-color: rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      margin-top: 1rem;
+      padding: 0.5rem;
+    }
+  }
+
+  @media (min-width: 769px) {
+    .navbar-brand .brand-text {
+      display: inline;
+    }
   }
 </style>
 
-<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+<nav class="navbar navbar-expand-md sticky-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/listings"><i class="fa-regular fa-compass"></i></a>
+    <a class="navbar-brand" href="/listings">
+      <i class="fa-regular fa-compass"></i>
+      <span class="brand-text">WANDERLUST</span>
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link" href="/listings">Explore</a>
+        <a class="nav-link" href="/listings">
+          <i class="fa-solid fa-compass me-1"></i>Explore
+        </a>
       </div>
-      <!-- <div class="navbar-nav ms-auto">
+      <div class="navbar-nav mx-auto">
         <form class="d-flex" role="search">
-          <input class="form-control me-2 search-inp" type="search" placeholder="Search destinations">
-          <button class="btn search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
+          <input class="form-control me-2 search-inp" type="search" placeholder="Search destinations...">
+          <button class="btn search-btn" type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>Search
+          </button>
         </form>
-      </div> -->
+      </div>
       <div class="navbar-nav ms-auto">
-        <a class="nav-link" href="/listings/new">Rent Home</a>
+        <a class="nav-link" href="/listings/new">
+          <i class="fa-solid fa-home me-1"></i>Rent Home
+        </a>
         <% if(!currUser) { %>
-        <a class="nav-link" href="/signup"><b>Sign Up</b></a>
-        <a class="nav-link" href="/login"><b>Login</b></a>
+        <a class="nav-link auth-link" href="/signup">
+          <b><i class="fa-solid fa-user-plus me-1"></i>Sign Up</b>
+        </a>
+        <a class="nav-link auth-link" href="/login">
+          <b><i class="fa-solid fa-sign-in-alt me-1"></i>Login</b>
+        </a>
         <% } else { %>
-        <a class="nav-link" href="/logout"><b>Logout</b></a>
+        <a class="nav-link logout-link" href="/logout">
+          <b><i class="fa-solid fa-sign-out-alt me-1"></i>Logout</b>
+        </a>
         <% } %>
       </div>
     </div>
